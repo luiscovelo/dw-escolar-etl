@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dim_estado</name>
+    <name>carga_dim_renda</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,27 +427,35 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/11/29 14:29:36.305</created_date>
+    <created_date>2021/11/29 20:29:57.248</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/11/29 14:29:36.305</modified_date>
+    <modified_date>2021/11/29 20:29:57.248</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>db_academico</name>
+    <name>db_vestibular</name>
     <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <type>MYSQL</type>
     <access>Native</access>
-    <database>db_academico</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <database>db_vestibular</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -462,7 +470,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -471,6 +479,10 @@
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
@@ -551,13 +563,13 @@
   </connection>
   <order>
     <hop>
-      <from>Estado</from>
+      <from>Renda</from>
       <to>Insert / update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Estado</name>
+    <name>Renda</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -567,8 +579,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_academico</connection>
-    <sql>select id,nome from edu_estado</sql>
+    <connection>db_vestibular</connection>
+    <sql>select alt.alternativa as renda from respostas resp
+inner join perguntas perg on perg.idperguntas = resp.perguntas_idperguntas
+inner join alternativas alt on alt.idalternativas = resp.alternativas_idalternativas
+where perg.idperguntas in(4,33,34)
+and alt.alternativa is not null
+group by alt.alternativa
+order by resp.idresposta desc, alt.alternativa asc</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -577,39 +595,16 @@
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Estado</origin>
-        <comments>id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>nome</name>
-        <length>255</length>
+        <name>renda</name>
+        <length>195</length>
         <precision>-1</precision>
-        <origin>Estado</origin>
-        <comments>nome</comments>
+        <origin>Rede</origin>
+        <comments>renda</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -632,8 +627,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>310</xloc>
-      <yloc>174</yloc>
+      <xloc>711</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -653,27 +648,16 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>dw_escolar</schema>
-      <table>estado</table>
+      <table>renda</table>
       <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>nome</name>
-        <field>nome</field>
+        <name>renda</name>
+        <field>faixa</field>
         <condition>=</condition>
         <name2/>
       </key>
       <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>N</update>
-      </value>
-      <value>
-        <name>nome</name>
-        <rename>nome</rename>
+        <name>faixa</name>
+        <rename>renda</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -686,8 +670,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>566</xloc>
-      <yloc>174</yloc>
+      <xloc>967</xloc>
+      <yloc>215</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

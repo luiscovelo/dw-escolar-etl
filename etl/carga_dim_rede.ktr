@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>dim_cidade</name>
+    <name>carga_dim_rede</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,27 +427,35 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/11/29 14:12:32.347</created_date>
+    <created_date>2021/11/29 20:23:59.855</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/11/29 14:12:32.347</modified_date>
+    <modified_date>2021/11/29 20:23:59.855</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>db_academico</name>
+    <name>db_vestibular</name>
     <server>localhost</server>
-    <type>POSTGRESQL</type>
+    <type>MYSQL</type>
     <access>Native</access>
-    <database>db_academico</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
+    <database>db_vestibular</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
         <attribute>N</attribute>
@@ -462,7 +470,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>5432</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -471,6 +479,10 @@
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
@@ -551,13 +563,13 @@
   </connection>
   <order>
     <hop>
-      <from>Cidade</from>
+      <from>Rede</from>
       <to>Insert / update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Cidade</name>
+    <name>Rede</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -567,8 +579,12 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>db_academico</connection>
-    <sql>select id,nome,estado_id from edu_cidade</sql>
+    <connection>db_vestibular</connection>
+    <sql>select alt.alternativa as rede from respostas resp
+inner join perguntas perg on perg.idperguntas = resp.perguntas_idperguntas
+inner join alternativas alt on alt.idalternativas = resp.alternativas_idalternativas
+where  perg.idperguntas = 3
+group by alt.alternativa</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -577,62 +593,16 @@
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Cidade</origin>
-        <comments>id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>nome</name>
-        <length>255</length>
+        <name>rede</name>
+        <length>195</length>
         <precision>-1</precision>
-        <origin>Cidade</origin>
-        <comments>nome</comments>
+        <origin>Rede</origin>
+        <comments>rede</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>estado_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Cidade</origin>
-        <comments>estado_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
@@ -655,8 +625,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>160</yloc>
+      <xloc>576</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -676,38 +646,16 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>dw_escolar</schema>
-      <table>cidade</table>
+      <table>rede</table>
       <key>
-        <name>id</name>
-        <field>id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>nome</name>
+        <name>rede</name>
         <field>nome</field>
         <condition>=</condition>
         <name2/>
       </key>
-      <key>
-        <name>estado_id</name>
-        <field>estado_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id</rename>
-        <update>N</update>
-      </value>
       <value>
         <name>nome</name>
-        <rename>nome</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>estado_id</name>
-        <rename>estado_id</rename>
+        <rename>rede</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -720,8 +668,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>160</yloc>
+      <xloc>832</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>transformacao-aluno</name>
+    <name>carga_dim_cidade</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,9 +428,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/11/29 11:32:06.284</created_date>
+    <created_date>2021/11/29 14:12:32.347</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/11/29 11:32:06.284</modified_date>
+    <modified_date>2021/11/29 14:12:32.347</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -472,69 +472,6 @@
       <attribute>
         <code>QUOTE_ALL_FIELDS</code>
         <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>USE_POOLING</code>
-        <attribute>N</attribute>
-      </attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>db_vestibular</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>db_vestibular</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
-        <attribute>500</attribute>
-      </attribute>
-      <attribute>
-        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
-        <attribute>true</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>IS_CLUSTERED</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>PORT_NUMBER</code>
-        <attribute>3306</attribute>
-      </attribute>
-      <attribute>
-        <code>PRESERVE_RESERVED_WORD_CASE</code>
-        <attribute>Y</attribute>
-      </attribute>
-      <attribute>
-        <code>QUOTE_ALL_FIELDS</code>
-        <attribute>N</attribute>
-      </attribute>
-      <attribute>
-        <code>STREAM_RESULTS</code>
-        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
@@ -615,38 +552,13 @@
   </connection>
   <order>
     <hop>
-      <from>VESTIBULAR</from>
-      <to>SORT_ROWS_VESTIBULAR</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>ACADEMICO</from>
-      <to>SORT_ROWS_ACADEMICO</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SORT_ROWS_VESTIBULAR</from>
-      <to>MERGE_DB</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>SORT_ROWS_ACADEMICO</from>
-      <to>MERGE_DB</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>MERGE_DB</from>
-      <to>UNIQUE_CPF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>UNIQUE_CPF</from>
+      <from>Cidade</from>
       <to>Insert / update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>ACADEMICO</name>
+    <name>Cidade</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -657,20 +569,7 @@
       <schema_name/>
     </partitioning>
     <connection>db_academico</connection>
-    <sql>select  
-	pf.cpf as acad_cpf,
-	pf.sexo,
-	pf.nascimento_data as data_nascimento,
-	(extract(year from now()) - extract(year from pf.nascimento_data)) as idade,
-	cidade.id as cidade_id,
-	estado.id as estado_id,
-	matricula.descricao as situacao_matricula
-from pessoa_fisica pf
-inner join edu_aluno aluno on aluno.pessoa_fisica_id = pf.pessoa_ptr_id
-inner join edu_situacaomatricula matricula on matricula.id = aluno.situacao_id
-inner join edu_cidade cidade on cidade.id = aluno.naturalidade_id
-inner join edu_estado estado on estado.id = cidade.estado_id
-where pf.cpf is not null</sql>
+    <sql>select id,nome,estado_id from edu_cidade</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -679,106 +578,37 @@ where pf.cpf is not null</sql>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>acad_cpf</name>
-        <length>20</length>
-        <precision>-1</precision>
-        <origin>ACADEMICO</origin>
-        <comments>acad_cpf</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>sexo</name>
-        <length>1</length>
-        <precision>-1</precision>
-        <origin>ACADEMICO</origin>
-        <comments>sexo</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Date</type>
-        <storagetype>normal</storagetype>
-        <name>data_nascimento</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>ACADEMICO</origin>
-        <comments>data_nascimento</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Number</type>
-        <storagetype>normal</storagetype>
-        <name>idade</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>ACADEMICO</origin>
-        <comments>idade</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>cidade_id</name>
+        <name>id</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>ACADEMICO</origin>
-        <comments>cidade_id</comments>
+        <origin>Cidade</origin>
+        <comments>id</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_BR</date_format_locale>
+        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nome</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>Cidade</origin>
+        <comments>nome</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -799,32 +629,9 @@ where pf.cpf is not null</sql>
         <name>estado_id</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>ACADEMICO</origin>
+        <origin>Cidade</origin>
         <comments>estado_id</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>situacao_matricula</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>ACADEMICO</origin>
-        <comments>situacao_matricula</comments>
-        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -849,8 +656,8 @@ where pf.cpf is not null</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>288</yloc>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -869,35 +676,17 @@ where pf.cpf is not null</sql>
     <commit>100</commit>
     <update_bypassed>N</update_bypassed>
     <lookup>
-      <schema/>
-      <table>aluno</table>
+      <schema>dw_escolar</schema>
+      <table>cidade</table>
       <key>
-        <name>acad_cpf</name>
-        <field>cpf</field>
+        <name>id</name>
+        <field>id</field>
         <condition>=</condition>
         <name2/>
       </key>
       <key>
-        <name>sexo</name>
-        <field>genero</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>data_nascimento</name>
-        <field>data_nascimento</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>idade</name>
-        <field>idade</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>cidade_id</name>
-        <field>cidade_id</field>
+        <name>nome</name>
+        <field>nome</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -907,78 +696,19 @@ where pf.cpf is not null</sql>
         <condition>=</condition>
         <name2/>
       </key>
-      <key>
-        <name>situacao_matricula</name>
-        <field>situacao_matricula</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>etnia</name>
-        <field>etnia</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>escola_origem</name>
-        <field>escola_origem</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>renda</name>
-        <field>renda</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
       <value>
-        <name>cpf</name>
-        <rename>acad_cpf</rename>
+        <name>id</name>
+        <rename>id</rename>
         <update>N</update>
       </value>
       <value>
-        <name>genero</name>
-        <rename>sexo</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>data_nascimento</name>
-        <rename>data_nascimento</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>idade</name>
-        <rename>idade</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>cidade_id</name>
-        <rename>cidade_id</rename>
+        <name>nome</name>
+        <rename>nome</rename>
         <update>Y</update>
       </value>
       <value>
         <name>estado_id</name>
         <rename>estado_id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>situacao_matricula</name>
-        <rename>situacao_matricula</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>etnia</name>
-        <rename>etnia</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>escola_origem</name>
-        <rename>escola_origem</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>renda</name>
-        <rename>renda</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -991,317 +721,8 @@ where pf.cpf is not null</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>848</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>MERGE_DB</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>INNER</join_type>
-    <step1>SORT_ROWS_ACADEMICO</step1>
-    <step2>SORT_ROWS_VESTIBULAR</step2>
-    <keys_1>
-      <key>acad_cpf</key>
-    </keys_1>
-    <keys_2>
-      <key>vest_cpf</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>208</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>SORT_ROWS_ACADEMICO</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>acad_cpf</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>288</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>SORT_ROWS_VESTIBULAR</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>%%java.io.tmpdir%%</directory>
-    <prefix>out</prefix>
-    <sort_size>1000000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>vest_cpf</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>304</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>VESTIBULAR</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>db_vestibular</connection>
-    <sql>select cand.cpf as vest_cpf,
-    (
-        select alt.alternativa from respostas resp
-        inner join perguntas perg on perg.idperguntas = resp.perguntas_idperguntas
-        inner join alternativas alt on alt.idalternativas = resp.alternativas_idalternativas
-        where resp.alunos_idalunos = cand.idalunos
-        and perg.idperguntas = 31
-        order by resp.idresposta desc
-        limit 1
-    ) as etnia,
-    (
-        select alt.alternativa from respostas resp
-        inner join perguntas perg on perg.idperguntas = resp.perguntas_idperguntas
-        inner join alternativas alt on alt.idalternativas = resp.alternativas_idalternativas
-        where resp.alunos_idalunos = cand.idalunos
-        and perg.idperguntas = 3
-        order by resp.idresposta desc
-        limit 1
-    ) as escola_origem,
-    (
-        select alt.alternativa from respostas resp
-        inner join perguntas perg on perg.idperguntas = resp.perguntas_idperguntas
-        inner join alternativas alt on alt.idalternativas = resp.alternativas_idalternativas
-        where resp.alunos_idalunos = cand.idalunos
-        and perg.idperguntas in(4,33,34)
-        and alt.alternativa is not null
-        order by resp.idresposta desc
-        limit 1
-    ) as renda
-from candidatos cand</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <row-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>vest_cpf</name>
-        <length>45</length>
-        <precision>-1</precision>
-        <origin>VESTIBULAR</origin>
-        <comments>vest_cpf</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>etnia</name>
-        <length>195</length>
-        <precision>-1</precision>
-        <origin>VESTIBULAR</origin>
-        <comments>etnia</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>escola_origem</name>
-        <length>195</length>
-        <precision>-1</precision>
-        <origin>VESTIBULAR</origin>
-        <comments>escola_origem</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>renda</name>
-        <length>195</length>
-        <precision>-1</precision>
-        <origin>VESTIBULAR</origin>
-        <comments>renda</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_BR</date_format_locale>
-        <date_format_timezone>America/Sao_Paulo</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-    </row-meta>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>128</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>UNIQUE_CPF</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <count_rows>N</count_rows>
-    <count_field/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <error_description/>
-    <fields>
-      <field>
-        <name>acad_cpf</name>
-        <case_insensitive>Y</case_insensitive>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
-      <yloc>208</yloc>
+      <xloc>464</xloc>
+      <yloc>160</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
