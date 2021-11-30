@@ -677,7 +677,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>dw_escolar</schema>
-      <table>cidade</table>
+      <table>cidades</table>
       <key>
         <name>id</name>
         <field>id</field>

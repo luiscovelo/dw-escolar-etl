@@ -654,7 +654,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>dw_escolar</schema>
-      <table>estado</table>
+      <table>estados</table>
       <key>
         <name>id</name>
         <field>id</field>
