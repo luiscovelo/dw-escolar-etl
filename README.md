@@ -4,7 +4,7 @@
 A finalidade deste projeto é aplicar na prática o conteúdo passada em aula na matéria de Inteligência de Negócios II, referente ao 8º período de Sistemas de Informação.
 
 ## Cenário:
-Considere uma organização da área de eduação que possui 2 sistemas distintos:
+Considere uma organização da área de educação que possui 2 sistemas distintos:
 * Sistema Acadêmico: contém tudo relacionado ao aluno/curso.
 * Sistema de Vestibular: contém os dados de candidatos interessados nos processos seletivos.
 
