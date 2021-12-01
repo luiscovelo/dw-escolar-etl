@@ -27,7 +27,7 @@ Porém, foi identificado que no sistema acadêmico não há informação de etni
 
 Desenvolver uma solução de Datawarehouse que integre o sistema acadêmico e o de vestibular.
 
-Você consegue mais informações sobre o escopo do projeto neste documento: [descricao-do-trabalho.pdf](/descricao-do-trabalho.pdf).
+Você consegue mais informações sobre o escopo do projeto neste documento: [descricao-do-trabalho.pdf](/descricao-do-trabalho.pdf?raw=true).
 
 <br>
 
