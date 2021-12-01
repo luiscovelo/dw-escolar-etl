@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Nov-2021 às 01:07
+-- Generation Time: 01-Dez-2021 às 21:25
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `aluno`
+-- Estrutura da tabela `alunos`
 --
 
-CREATE TABLE `aluno` (
+CREATE TABLE `alunos` (
   `id` int(11) NOT NULL,
   `cpf` varchar(14) NOT NULL,
   `idade` int(11) DEFAULT '0',
@@ -41,10 +41,10 @@ CREATE TABLE `aluno` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `aluno`
+-- Extraindo dados da tabela `alunos`
 --
 
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (1, '000.029.406-39', 45, '1976-12-20', 2, 3151800, 31, 2, 2, 7, 6),
 (2, '000.195.430-00', 42, '1979-01-10', 2, 4108304, 41, 2, 4, 6, 6),
 (3, '000.224.216-88', 47, '1974-08-31', 2, 3120508, 31, 2, 4, 6, 6),
@@ -762,7 +762,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (715, '023.289.966-55', 18, '2003-07-30', 1, 3169307, 31, 2, 2, 4, 6),
 (716, '023.318.266-76', 23, '1998-03-27', 2, 3147907, 31, 6, 4, 19, 6),
 (717, '023.337.586-43', 19, '2002-09-27', 1, 3147907, 31, 5, 4, 12, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (718, '023.340.296-96', 24, '1997-10-04', 1, 3132404, 31, 6, 4, 6, 6),
 (719, '023.347.747-07', 51, '1970-08-20', 2, 3550308, 35, 2, 2, 20, 7),
 (720, '023.374.776-14', 19, '2002-10-14', 2, 3170701, 31, 2, 4, 20, 13),
@@ -1472,7 +1472,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (1424, '059.866.186-70', 38, '1983-02-07', 1, 3101607, 31, 2, 4, 13, 9),
 (1425, '059.878.755-01', 24, '1997-07-07', 2, 3151800, 31, 2, 4, 20, 9),
 (1426, '059.879.336-41', 40, '1981-02-04', 1, 3101607, 31, 2, 4, 14, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (1427, '059.886.146-71', 40, '1981-09-11', 1, 3106200, 31, 5, 4, 5, 6),
 (1428, '059.894.146-09', 37, '1984-11-26', 2, 3114105, 31, 5, 4, 6, 6),
 (1429, '059.896.946-28', 38, '1983-09-08', 2, 3500402, 35, 6, 4, 17, 6),
@@ -2178,7 +2178,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (2129, '077.758.356-99', 34, '1987-08-29', 2, 3143401, 31, 2, 4, 1, 6),
 (2130, '077.792.576-14', 37, '1984-11-04', 2, 3101607, 31, 6, 2, 4, 6),
 (2131, '077.800.866-58', 28, '1993-07-13', 2, 3114105, 31, 5, 4, 4, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (2132, '077.826.226-03', 35, '1986-05-17', 1, 3113909, 31, 6, 4, 2, 6),
 (2133, '077.838.286-98', 26, '1995-10-02', 2, 3146008, 31, 2, 4, 4, 6),
 (2134, '077.861.176-01', 35, '1986-03-26', 1, 3152501, 31, 2, 4, 7, 6),
@@ -2884,7 +2884,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (2834, '089.452.066-04', 33, '1988-01-24', 1, 3114105, 31, 2, 4, 16, 6),
 (2835, '089.469.166-05', 34, '1987-10-26', 2, 3146008, 31, 2, 4, 17, 6),
 (2836, '089.474.566-24', 34, '1987-11-18', 2, 3130606, 31, 5, 4, 18, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (2837, '089.475.456-43', 34, '1987-03-27', 2, 3145505, 31, 2, 4, 13, 6),
 (2838, '089.477.196-50', 34, '1987-10-15', 2, 3147303, 31, 2, 4, 7, 6),
 (2839, '089.490.916-90', 33, '1988-01-25', 2, 3111606, 31, 2, 4, 4, 6),
@@ -3590,7 +3590,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (3539, '100.297.746-08', 19, '2002-12-16', 2, 3146008, 31, 2, 4, 4, 6),
 (3540, '100.305.216-96', 28, '1993-09-08', 2, 3122405, 31, 2, 4, 6, 6),
 (3541, '100.377.416-40', 31, '1990-08-26', 2, 3147303, 31, 2, 4, 7, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (3542, '100.392.246-51', 31, '1990-11-18', 1, 3152501, 31, 2, 4, 4, 6),
 (3543, '100.397.686-78', 31, '1990-12-13', 2, 3162005, 31, 6, 4, 7, 6),
 (3544, '100.465.226-70', 30, '1991-10-22', 1, 3123601, 31, 5, 4, 7, 9),
@@ -4295,7 +4295,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (4243, '108.849.426-94', 22, '1999-08-11', 2, 3101607, 31, 5, 4, 20, 6),
 (4244, '108.861.586-48', 28, '1993-02-26', 2, 3152501, 31, 5, 4, 20, 9),
 (4245, '108.876.326-02', 29, '1992-07-21', 1, 3550308, 35, 5, 4, 17, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (4246, '108.884.766-80', 29, '1992-08-18', 2, 3169307, 31, 6, 4, 5, 6),
 (4247, '108.886.856-88', 22, '1999-07-14', 2, 3171709, 31, 5, 4, 7, 6),
 (4248, '108.886.866-50', 23, '1998-08-06', 1, 3171709, 31, 5, 4, 7, 6),
@@ -5001,7 +5001,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (4948, '116.185.066-09', 25, '1996-02-22', 1, 3159605, 31, 2, 4, 21, 6),
 (4949, '116.206.136-70', 20, '2001-12-16', 1, 3111002, 31, 2, 4, 21, 6),
 (4950, '116.212.076-25', 22, '1999-06-10', 1, 3145505, 31, 2, 4, 13, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (4951, '116.212.086-05', 24, '1997-11-23', 2, 3145505, 31, 2, 4, 13, 6),
 (4952, '116.213.426-70', 20, '2001-06-22', 1, 3101904, 31, 5, 4, 21, 6),
 (4953, '116.239.566-41', 21, '2000-07-18', 2, 3147907, 31, 2, 4, 4, 6),
@@ -5707,7 +5707,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (5653, '120.933.776-24', 19, '2002-02-23', 1, 3152501, 31, 3, 4, 19, 14),
 (5654, '120.976.696-54', 18, '2003-01-14', 1, 3147907, 31, 2, 4, 10, 6),
 (5655, '120.987.506-33', 26, '1995-10-13', 2, 3146008, 31, 2, 2, 4, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (5656, '120.990.026-22', 28, '1993-11-20', 2, 3169307, 31, 5, 4, 6, 6),
 (5657, '121.002.206-08', 27, '1994-10-26', 2, 3137809, 31, 2, 4, 17, 6),
 (5658, '121.005.046-30', 26, '1995-03-27', 1, 3152501, 31, 2, 4, 16, 6),
@@ -6412,7 +6412,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (6357, '126.025.576-09', 21, '2000-02-26', 1, 3552502, 35, 2, 4, 18, 6),
 (6358, '126.025.616-22', 22, '1999-09-09', 1, 3149903, 31, 6, 4, 2, 6),
 (6359, '126.025.626-02', 25, '1996-09-22', 1, 3152501, 31, 6, 4, 18, 14);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (6360, '126.028.866-88', 25, '1996-07-17', 2, 3152501, 31, 2, 4, 16, 6),
 (6361, '126.042.736-67', 24, '1997-02-15', 2, 3516200, 35, 2, 4, 19, 9),
 (6362, '126.042.966-08', 27, '1994-04-27', 2, 3114105, 31, 2, 4, 21, 9),
@@ -7118,7 +7118,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (7062, '130.792.086-17', 20, '2001-09-27', 2, 3152501, 31, 2, 4, 16, 6),
 (7063, '130.793.646-60', 19, '2002-05-08', 2, 3113602, 31, 5, 4, 13, 6),
 (7064, '130.803.396-65', 22, '1999-04-20', 2, 3162005, 31, 2, 4, 19, 14);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (7065, '130.806.496-99', 18, '2003-11-08', 1, 3147907, 31, 5, 4, 6, 6),
 (7066, '130.810.306-92', 21, '2000-09-13', 2, 3151800, 31, 6, 4, 16, 6),
 (7067, '130.812.546-12', 22, '1999-05-29', 2, 3147907, 31, 5, 4, 20, 6),
@@ -7824,7 +7824,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (7767, '136.025.576-18', 24, '1997-02-25', 2, 3163706, 31, 2, 4, 16, 6),
 (7768, '136.026.796-40', 22, '1999-02-27', 1, 3115508, 31, 2, 1, 10, 6),
 (7769, '136.035.466-28', 23, '1998-09-24', 1, 3163706, 31, 5, 4, 6, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (7770, '136.042.206-45', 22, '1999-04-20', 2, 3147907, 31, 2, 4, 4, 9),
 (7771, '136.062.846-08', 19, '2002-09-22', 2, 3146008, 31, 2, 4, 12, 6),
 (7772, '136.076.636-70', 25, '1996-09-24', 1, 3169307, 31, 5, 4, 19, 6),
@@ -8530,7 +8530,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (8472, '142.353.366-65', 19, '2002-05-28', 2, 3509700, 35, 2, 4, 18, 6),
 (8473, '142.381.346-48', 20, '2001-02-14', 1, 3151800, 31, 5, 4, 2, 6),
 (8474, '142.384.906-06', 20, '2001-05-10', 2, 3151800, 31, 5, 4, 7, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (8475, '142.385.046-74', 20, '2001-11-30', 2, 3152501, 31, 2, 3, 18, 6),
 (8476, '142.386.926-59', 18, '2003-05-01', 2, 3163706, 31, 2, 2, 10, 6),
 (8477, '142.404.336-06', 23, '1998-06-16', 1, 3169307, 31, 6, 4, 7, 6),
@@ -9237,7 +9237,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (9178, '151.587.296-38', 22, '1999-05-14', 1, 3146008, 31, 5, 4, 19, 6),
 (9179, '151.609.456-52', 18, '2003-06-13', 2, 3169307, 31, 6, 4, 8, 13),
 (9180, '151.632.816-74', 22, '1999-07-22', 2, 3101607, 31, 2, 4, 14, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (9181, '151.646.456-70', 17, '2004-03-20', 2, 3169307, 31, 2, 4, 1, 6),
 (9182, '151.797.796-77', 20, '2001-09-16', 1, 3159605, 31, 2, 2, 18, 1),
 (9183, '151.818.406-55', 20, '2001-07-21', 1, 3132404, 31, 2, 4, 4, 6),
@@ -9944,7 +9944,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (9884, '375.414.046-91', 61, '1960-01-01', 1, 3108305, 31, 2, 4, 13, 6),
 (9885, '375.534.616-87', 62, '1959-10-13', 2, 3550308, 35, 2, 4, 12, 14),
 (9886, '375.779.136-34', 57, '1964-12-04', 1, 3128709, 31, 2, 4, 2, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (9887, '376.111.118-50', 26, '1995-03-28', 1, 3132404, 31, 2, 4, 7, 6),
 (9888, '376.451.456-68', 61, '1960-02-21', 1, 3169307, 31, 5, 4, 18, 6),
 (9889, '376.711.578-64', 26, '1995-11-28', 2, 3139003, 31, 2, 1, 14, 6),
@@ -10642,7 +10642,7 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 (10581, '704.378.636-38', 17, '2004-01-03', 2, 3147907, 31, 5, 4, 7, 6),
 (10582, '704.430.916-09', 19, '2002-12-31', 2, 3147907, 31, 5, 4, 7, 6),
 (10583, '704.435.986-81', 18, '2003-01-16', 1, 3147907, 31, 2, 4, 11, 6);
-INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
+INSERT INTO `alunos` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cidade_id`, `estado_id`, `etnia_id`, `rede_id`, `renda_id`, `matricula_id`) VALUES
 (10584, '704.441.506-76', 19, '2002-07-16', 1, 3147907, 31, 2, 4, 11, 6),
 (10585, '704.443.306-58', 19, '2002-11-18', 1, 3151800, 31, 5, 4, 11, 6),
 (10586, '704.463.286-69', 19, '2002-11-21', 2, 3147907, 31, 6, 4, 5, 6),
@@ -10919,20 +10919,20 @@ INSERT INTO `aluno` (`id`, `cpf`, `idade`, `data_nascimento`, `genero_id`, `cida
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cidade`
+-- Estrutura da tabela `cidades`
 --
 
-CREATE TABLE `cidade` (
+CREATE TABLE `cidades` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `estado_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `cidade`
+-- Extraindo dados da tabela `cidades`
 --
 
-INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `estado_id`) VALUES
 (1, 'BARÃO GERALDO', 35),
 (2, 'PALMEIRAL', 31),
 (3, 'SÃO MIGUEL PAULISTA', 35),
@@ -12662,7 +12662,7 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
 (2706703, 'PENEDO', 27),
 (2706802, 'PIACABUCU', 27),
 (2706901, 'PILAR', 27);
-INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `estado_id`) VALUES
 (2707008, 'PINDOBA', 27),
 (2707107, 'PIRANHAS', 27),
 (2707206, 'POCO DAS TRINCHEIRAS', 27),
@@ -14421,7 +14421,7 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
 (3518859, 'GUATAPARA', 35),
 (3518909, 'GUZOLANDIA', 35),
 (3519006, 'HERCULANDIA', 35);
-INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `estado_id`) VALUES
 (3519055, 'HOLAMBRA', 35),
 (3519071, 'HORTOLANDIA', 35),
 (3519105, 'IACANGA', 35),
@@ -16181,7 +16181,7 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
 (5105234, 'LAMBARI D´OESTE', 51),
 (5105259, 'LUCAS DO RIO VERDE', 51),
 (5105309, 'LUCIARA', 51);
-INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
+INSERT INTO `cidades` (`id`, `nome`, `estado_id`) VALUES
 (5105507, 'VILA BELA DA SANTISSIMA TRINDADE', 51),
 (5105580, 'MARCELANDIA', 51),
 (5105606, 'MATUPA', 51),
@@ -16510,19 +16510,19 @@ INSERT INTO `cidade` (`id`, `nome`, `estado_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `estado`
+-- Estrutura da tabela `estados`
 --
 
-CREATE TABLE `estado` (
+CREATE TABLE `estados` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `estado`
+-- Extraindo dados da tabela `estados`
 --
 
-INSERT INTO `estado` (`id`, `nome`) VALUES
+INSERT INTO `estados` (`id`, `nome`) VALUES
 (11, 'RONDÔNIA'),
 (12, 'ACRE'),
 (13, 'AMAZONAS'),
@@ -16554,19 +16554,19 @@ INSERT INTO `estado` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `etnia`
+-- Estrutura da tabela `etnias`
 --
 
-CREATE TABLE `etnia` (
+CREATE TABLE `etnias` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `etnia`
+-- Extraindo dados da tabela `etnias`
 --
 
-INSERT INTO `etnia` (`id`, `nome`) VALUES
+INSERT INTO `etnias` (`id`, `nome`) VALUES
 (1, 'Amarela'),
 (2, 'Branca'),
 (3, 'Indígena'),
@@ -16577,38 +16577,38 @@ INSERT INTO `etnia` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `genero`
+-- Estrutura da tabela `generos`
 --
 
-CREATE TABLE `genero` (
+CREATE TABLE `generos` (
   `id` int(11) NOT NULL,
   `nome` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `genero`
+-- Extraindo dados da tabela `generos`
 --
 
-INSERT INTO `genero` (`id`, `nome`) VALUES
+INSERT INTO `generos` (`id`, `nome`) VALUES
 (1, 'M'),
 (2, 'F');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `matricula`
+-- Estrutura da tabela `matriculas`
 --
 
-CREATE TABLE `matricula` (
+CREATE TABLE `matriculas` (
   `id` int(11) NOT NULL,
   `situacao` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `matricula`
+-- Extraindo dados da tabela `matriculas`
 --
 
-INSERT INTO `matricula` (`id`, `situacao`) VALUES
+INSERT INTO `matriculas` (`id`, `situacao`) VALUES
 (1, 'Transferido'),
 (2, 'Trancado Voluntariamente'),
 (3, 'Concluído'),
@@ -16628,19 +16628,19 @@ INSERT INTO `matricula` (`id`, `situacao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `rede`
+-- Estrutura da tabela `redes`
 --
 
-CREATE TABLE `rede` (
+CREATE TABLE `redes` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `rede`
+-- Extraindo dados da tabela `redes`
 --
 
-INSERT INTO `rede` (`id`, `nome`) VALUES
+INSERT INTO `redes` (`id`, `nome`) VALUES
 (1, 'A maior parte em escola particular'),
 (2, 'A maior parte em escola pública'),
 (3, 'Apenas em escola particular'),
@@ -16649,19 +16649,19 @@ INSERT INTO `rede` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `renda`
+-- Estrutura da tabela `rendas`
 --
 
-CREATE TABLE `renda` (
+CREATE TABLE `rendas` (
   `id` int(11) NOT NULL,
   `faixa` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `renda`
+-- Extraindo dados da tabela `rendas`
 --
 
-INSERT INTO `renda` (`id`, `faixa`) VALUES
+INSERT INTO `rendas` (`id`, `faixa`) VALUES
 (1, 'Menor que R$ 477,00'),
 (2, 'Maior que R$ 3340,00'),
 (3, 'Não declarado'),
@@ -16689,9 +16689,9 @@ INSERT INTO `renda` (`id`, `faixa`) VALUES
 --
 
 --
--- Indexes for table `aluno`
+-- Indexes for table `alunos`
 --
-ALTER TABLE `aluno`
+ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `cpf` (`cpf`),
   ADD KEY `estado_id` (`estado_id`),
@@ -16703,46 +16703,46 @@ ALTER TABLE `aluno`
   ADD KEY `genero_id` (`genero_id`);
 
 --
--- Indexes for table `cidade`
+-- Indexes for table `cidades`
 --
-ALTER TABLE `cidade`
+ALTER TABLE `cidades`
   ADD PRIMARY KEY (`id`),
   ADD KEY `estado_id` (`estado_id`);
 
 --
--- Indexes for table `estado`
+-- Indexes for table `estados`
 --
-ALTER TABLE `estado`
+ALTER TABLE `estados`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `etnia`
+-- Indexes for table `etnias`
 --
-ALTER TABLE `etnia`
+ALTER TABLE `etnias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `genero`
+-- Indexes for table `generos`
 --
-ALTER TABLE `genero`
+ALTER TABLE `generos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `matricula`
+-- Indexes for table `matriculas`
 --
-ALTER TABLE `matricula`
+ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rede`
+-- Indexes for table `redes`
 --
-ALTER TABLE `rede`
+ALTER TABLE `redes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `renda`
+-- Indexes for table `rendas`
 --
-ALTER TABLE `renda`
+ALTER TABLE `rendas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -16750,66 +16750,66 @@ ALTER TABLE `renda`
 --
 
 --
--- AUTO_INCREMENT for table `aluno`
+-- AUTO_INCREMENT for table `alunos`
 --
-ALTER TABLE `aluno`
+ALTER TABLE `alunos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10856;
 --
--- AUTO_INCREMENT for table `cidade`
+-- AUTO_INCREMENT for table `cidades`
 --
-ALTER TABLE `cidade`
+ALTER TABLE `cidades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5300109;
 --
--- AUTO_INCREMENT for table `estado`
+-- AUTO_INCREMENT for table `estados`
 --
-ALTER TABLE `estado`
+ALTER TABLE `estados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
--- AUTO_INCREMENT for table `etnia`
+-- AUTO_INCREMENT for table `etnias`
 --
-ALTER TABLE `etnia`
+ALTER TABLE `etnias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `genero`
+-- AUTO_INCREMENT for table `generos`
 --
-ALTER TABLE `genero`
+ALTER TABLE `generos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `matricula`
+-- AUTO_INCREMENT for table `matriculas`
 --
-ALTER TABLE `matricula`
+ALTER TABLE `matriculas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `rede`
+-- AUTO_INCREMENT for table `redes`
 --
-ALTER TABLE `rede`
+ALTER TABLE `redes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `renda`
+-- AUTO_INCREMENT for table `rendas`
 --
-ALTER TABLE `renda`
+ALTER TABLE `rendas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `aluno`
+-- Limitadores para a tabela `alunos`
 --
-ALTER TABLE `aluno`
-  ADD CONSTRAINT `aluno_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_2` FOREIGN KEY (`cidade_id`) REFERENCES `cidade` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_3` FOREIGN KEY (`etnia_id`) REFERENCES `etnia` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_4` FOREIGN KEY (`rede_id`) REFERENCES `rede` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_5` FOREIGN KEY (`renda_id`) REFERENCES `renda` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_6` FOREIGN KEY (`matricula_id`) REFERENCES `matricula` (`id`),
-  ADD CONSTRAINT `aluno_ibfk_7` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`);
+ALTER TABLE `alunos`
+  ADD CONSTRAINT `alunos_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estados` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_2` FOREIGN KEY (`cidade_id`) REFERENCES `cidades` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_3` FOREIGN KEY (`etnia_id`) REFERENCES `etnias` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_4` FOREIGN KEY (`rede_id`) REFERENCES `redes` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_5` FOREIGN KEY (`renda_id`) REFERENCES `rendas` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_6` FOREIGN KEY (`matricula_id`) REFERENCES `matriculas` (`id`),
+  ADD CONSTRAINT `alunos_ibfk_7` FOREIGN KEY (`genero_id`) REFERENCES `generos` (`id`);
 
 --
--- Limitadores para a tabela `cidade`
+-- Limitadores para a tabela `cidades`
 --
-ALTER TABLE `cidade`
-  ADD CONSTRAINT `cidade_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`id`);
+ALTER TABLE `cidades`
+  ADD CONSTRAINT `cidades_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estados` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

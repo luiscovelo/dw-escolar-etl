@@ -1,6 +1,5 @@
 # PROJETO DE SOFTWARE DE DATAWAREHOUSE
 
-<br>
 
 A finalidade deste projeto é aplicar na prática o conteúdo passada em aula na matéria de Inteligência de Negócios II, referente ao 8º período de Sistemas de Informação.
 
@@ -36,6 +35,9 @@ Você consegue mais informações sobre o escopo do projeto neste documento: [de
 Foram dividas em dois repositórios:
 * dw-escolar-elt:
     * Este reune todo o processo de ETL.
+    * Neste repositório contem as seguintes pastas:
+        * elt: contém todos os arquivos de transformações criadas no Pentaho (PDI);
+        * sqls: contém o dump do datawarehouse, schema do banco de dados do DW e alguns arquivos de scripts que auxiliaram a forma de pensar ao estruturar todo o projeto.
 * dw-escolar-web-report ([acesso ao repositório](https://github.com/luiscovelo/dw-escolar-web-report)):
     * Este é o sistema web responsável por apresentar a análise de dados.
 
@@ -50,6 +52,25 @@ Transformações ETL:
     * Para que fosse possível executar todas as transformações nas devidas ordens até a carga no datawarehouse, criamos um Job e incluimos a cada transformação na sua devida ordem.
 
 Após o job de transformações ser executado, teremos um datawarehouse alimentado e pronto para ser analisado.
+
+<br>
+
+# Ferramentas e tecnologias utilizadas
+
+* Back-end:
+    * Pentaho PDI: para ETL;
+    * CakePHP: para desenvolvimento do site de análise dos dados.
+* Front-end:
+    * HTML, CSS e Javascript
+* Banco de dados:
+    * PostgreSQL:
+        * Onde ficava as informações do sistema acadêmico.
+    * Mysql:
+        * Onde ficava as informações do sistema de vestibular;
+        * Escolhido para ser o banco de dados do datawarehouse.
+
+
+Para o desenvolvimento o projeto proposto, escolhemos utilizar o CakePHP e o Mysql, pois já era de conhecido em comum dos integrantes da equipe.
 
 <br>
 
